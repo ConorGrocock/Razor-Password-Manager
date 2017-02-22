@@ -16,3 +16,7 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('tests', function () {
+    $this->comment(exec("vendor/bin/phpunit"));
+})->describe('Run unit tests');
