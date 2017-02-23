@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Socialite;
+
 class RegisterController extends Controller
 {
     /*
@@ -68,4 +70,14 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+   * Redirect the user to the GitHub authentication page.
+   *
+   * @return Response
+   */
+  public function GoogleredirectToProvider()
+  {
+      return Socialite::driver('google')->redirect();
+  }
 }

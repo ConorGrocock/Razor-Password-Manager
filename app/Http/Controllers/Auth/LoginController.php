@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Socialite;
+use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -44,7 +46,7 @@ class LoginController extends Controller
    *
    * @return Response
    */
-  public function redirectToProvider()
+  public function GoogleredirectToProvider()
   {
       return Socialite::driver('google')->redirect();
   }
@@ -54,10 +56,22 @@ class LoginController extends Controller
    *
    * @return Response
    */
-  public function handleProviderCallback()
+  public function GooglehandleProviderCallback()
   {
-      $user = Socialite::driver('google')->user();
-      $user->getEmail();
-      $user->token;
+      $APIuser = Socialite::driver('google')->user();
+      $user = \App\User::where('email', $APIuser->getEmail());
+      if($user->count() > 0) {
+        Auth::loginUsingId($user->first()->id, true);
+      } else {
+        $user = User::firstOrCreate([
+          'name' => $APIuser->getName(),
+          'email' => $APIuser->getEmail(),
+          'API_User' => True,
+          'API_Service' => "google"
+        ]);
+        Auth::loginUsingId($user->id, true);
+      }
+      
+      redirect()->route('home');
   }
 }

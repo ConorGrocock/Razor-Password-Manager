@@ -68,6 +68,9 @@
                             </div>
                         </div>
                     </form>
+                    <a href="/login/google">
+                      <img src="/img/btn_google_signin.png" style="height:64px; width: auto;" alt="Sign in with Google">
+                    </a>
                 </div>
             </div>
         </div>
