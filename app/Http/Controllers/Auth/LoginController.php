@@ -71,7 +71,7 @@ class LoginController extends Controller
         ]);
         Auth::loginUsingId($user->id, true);
       }
-      
-      redirect()->route('home');
+
+      return redirect('home');
   }
 }
