@@ -8,7 +8,30 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                  <ul>
+                  @foreach ($Groups as $group)
+                    <li> {{ $group->name }}
+                      <ul>
+                          <li>Users</li>
+                          <ul>
+                            @foreach ($group->users as $user)
+                              <li>{{ $user->name }}</li>
+                            @endforeach
+                          </ul>
+                        </li>
+                      </ul>
+                        <ul>
+                            <li>Passwords</li>
+                            <ul>
+                              @foreach ($group->passwords as $passwords)
+                                <li>{{ $passwords->name }}</li>
+                              @endforeach
+                            </ul>
+                          </li>
+                        </ul>
+                    </li>
+                  @endforeach
+                </ul>
                 </div>
             </div>
         </div>

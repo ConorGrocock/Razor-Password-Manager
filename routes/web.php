@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('login/google'          , 'Auth\LoginController@GoogleredirectToProvider');
 Route::get('register/google'       , 'Auth\RegisterController@GoogleredirectToProvider');
 Route::get('login/google/callback' , 'Auth\LoginController@GooglehandleProviderCallback');
+
+
+Route::get('/password/new', 'PasswordController@create');
+Route::get('/password/list', 'PasswordController@index');
+
+Route::get('/group/new', 'GroupController@create');
