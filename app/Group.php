@@ -10,7 +10,7 @@ class Group extends Model
     return $this->HasMany('App\Password');
   }
   public function users() {
-    return $this->HasMany('App\Users');
+    return $this->belongsToMany('App\User');
   }
 
 }
