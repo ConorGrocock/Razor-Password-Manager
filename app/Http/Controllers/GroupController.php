@@ -28,13 +28,12 @@ class GroupController extends Controller
     {
         $group = new Group;
         $group->name = "Group One";
-        $group->users()->attach(Auth::user());
+        //Auth::user()->groups()->attach($group);
         $group->save();
 
+        $group->users()->attach(Auth::user());
 
-        foreach ($group->users() as $user) {
-          echo $user->name;
-        }
+        return redirect('/home');
     }
 
     /**

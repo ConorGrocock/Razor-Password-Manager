@@ -25,5 +25,6 @@ Route::get('login/google/callback' , 'Auth\LoginController@GooglehandleProviderC
 
 
 Route::get('/password/new', 'PasswordController@create');
+Route::get('/password/list', 'PasswordController@index');
 
 Route::get('/group/new', 'GroupController@create');
