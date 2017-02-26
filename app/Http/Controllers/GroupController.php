@@ -26,14 +26,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $group = new Group;
-        $group->name = "Group One";
-        //Auth::user()->groups()->attach($group);
-        $group->save();
-
-        $group->users()->attach(Auth::user());
-
-        return redirect('/home');
+      return view('group.create');
     }
 
     /**
@@ -44,7 +37,17 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    //     print_r($request);
+    //     die();
+
+        $group = new Group;
+        $group->name = $request->input('name');
+        //Auth::user()->groups()->attach($group);
+        $group->save();
+
+        $group->users()->attach(Auth::user());
+
+        return redirect('/home');
     }
 
     /**
