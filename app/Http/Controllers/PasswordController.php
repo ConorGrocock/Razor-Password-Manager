@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Password;
+use Auth;
 
 class PasswordController extends Controller
 {
@@ -16,7 +17,7 @@ class PasswordController extends Controller
     {
       $Passwords = Password::all();
       foreach ($Passwords as $password) {
-        echo $password->name . ": " . $password->password . "</br>";
+        echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
       }
 
     }
@@ -28,14 +29,8 @@ class PasswordController extends Controller
      */
     public function create()
     {
-        $password = new Password;
-        $password->name = "Name";
-        $password->password = "Password";
-        $password->group_id = 1;
-        //Auth::user()->groups()->attach($group);
-        $password->save();
-
-        return redirect('/home');
+      $groups = Auth::user()->groups;
+      return view('password.create', ['groups' => $groups]);
     }
 
     /**
@@ -46,7 +41,16 @@ class PasswordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // echo $request->input('group_select');
+      // die();
+      $password = new Password;
+      $password->name     = $request->input('name');
+      $password->password = $request->input('password');
+      $password->group_id = $request->input('group_select');
+      //Auth::user()->groups()->attach($group);
+      $password->save();
+
+      return redirect('/home');
     }
 
     /**

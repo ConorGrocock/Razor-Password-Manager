@@ -29,3 +29,6 @@ Route::get('/password/list', 'PasswordController@index');
 
 Route::get('/group/new', 'GroupController@create');
 Route::post('/group/new', 'GroupController@store');
+
+Route::get('/password/new', 'PasswordController@create');
+Route::post('/password/new', 'PasswordController@store');
