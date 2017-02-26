@@ -1,0 +1,8 @@
+Database:
+   Type:Enum  : {Text, Pin, Pattern}
+   Data:String: {
+		 Text	: "ExamplePassword",
+		 Pin    : "1234",
+		 Pattern:  14723
+		} 
+	       
