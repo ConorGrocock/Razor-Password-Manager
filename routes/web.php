@@ -23,12 +23,12 @@ Route::get('login/google'          , 'Auth\LoginController@GoogleredirectToProvi
 Route::get('register/google'       , 'Auth\RegisterController@GoogleredirectToProvider');
 Route::get('login/google/callback' , 'Auth\LoginController@GooglehandleProviderCallback');
 
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('/group/list', 'GroupController@index');
+  Route::get('/group/new', 'GroupController@create');
+  Route::post('/group/new', 'GroupController@store');
 
-Route::get('/password/new', 'PasswordController@create');
-Route::get('/password/list', 'PasswordController@index');
-
-Route::get('/group/new', 'GroupController@create');
-Route::post('/group/new', 'GroupController@store');
-
-Route::get('/password/new', 'PasswordController@create');
-Route::post('/password/new', 'PasswordController@store');
+  Route::get('/password/list', 'PasswordController@index');
+  Route::get('/password/new', 'PasswordController@create');
+  Route::post('/password/new', 'PasswordController@store');
+});

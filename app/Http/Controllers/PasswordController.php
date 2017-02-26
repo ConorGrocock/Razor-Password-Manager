@@ -16,10 +16,11 @@ class PasswordController extends Controller
     public function index()
     {
       $Passwords = Password::all();
-      foreach ($Passwords as $password) {
-        echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
-      }
+      // foreach ($Passwords as $password) {
+      //   echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
+      // }
 
+      return view('password.index', ['passwords' => $Passwords]);
     }
 
     /**

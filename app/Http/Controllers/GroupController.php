@@ -16,7 +16,12 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+      $groups = Group::all();
+      // foreach ($Passwords as $password) {
+      //   echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
+      // }
+
+      return view('group.index', ['groups' => $groups]);
     }
 
     /**
