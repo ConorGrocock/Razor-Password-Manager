@@ -15,12 +15,6 @@ class RouteTest extends TestCase
     $response->assertStatus(200);
   }
 
-  public function testHome()
-  {
-    $response = $this->get('/home');
-    $response->assertRedirect('/login');
-  }
-
   public function testLogin()
   {
     $response = $this->get('/login');
