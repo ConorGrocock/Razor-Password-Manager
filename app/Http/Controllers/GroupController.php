@@ -74,7 +74,7 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('group.edit', ['group' => Group::find($id)]);
     }
 
     /**
@@ -86,7 +86,10 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $group = Group::find($id);
+        $group->name = $request->input('name');
+        $group->save();
+        return redirect('/group/show/' . $group->id);
     }
 
     /**
@@ -97,6 +100,7 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Group::destroy($id);
+        return redirect('/home');
     }
 }

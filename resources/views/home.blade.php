@@ -10,7 +10,7 @@
                 <div class="panel-body">
                   <ul>
                   @foreach ($Groups as $group)
-                    <li> {{ $group->name }}
+                    <li> <a href="/group/show/{{$group->id}}">{{ $group->name }}</a>
                       <ul>
                           <li>Users</li>
                           <ul>

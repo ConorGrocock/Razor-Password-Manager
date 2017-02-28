@@ -8,14 +8,14 @@
                 <div class="panel-heading">Create new group</div>
 
                 <div class="panel-body">
-                  <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/group/new">
+                  <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/group/show/{{ $group->id }}/edit">
                       {{ csrf_field() }}
 
                       <div class="form-group">
                           <label for="name" class="col-md-4 control-label">Group name</label>
 
                           <div class="col-md-6">
-                              <input id="name" type="name" class="form-control" name="name"required autofocus>
+                              <input id="name" type="name" class="form-control" name="name"  value="{{ $group->name or '' }}" required autofocus>
 
                               @if ($errors->has('name'))
                                   <span class="help-block">
