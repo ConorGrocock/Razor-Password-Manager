@@ -24,6 +24,7 @@ Route::get('register/google'       , 'Auth\RegisterController@GoogleredirectToPr
 Route::get('login/google/callback' , 'Auth\LoginController@GooglehandleProviderCallback');
 
 Route::group(['middleware' => 'auth'], function () {
+  Route::get('/group/show/{id}', 'GroupController@show');
   Route::get('/group/list', 'GroupController@index');
   Route::get('/group/new', 'GroupController@create');
   Route::post('/group/new', 'GroupController@store');

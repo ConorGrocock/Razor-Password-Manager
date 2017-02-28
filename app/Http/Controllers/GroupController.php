@@ -63,7 +63,7 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('group.show', ['group' => Group::find($id)]);
     }
 
     /**
