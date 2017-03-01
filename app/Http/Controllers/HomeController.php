@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $Groups = Group::all();
+      $Groups = Group::all()->take(10);
+
 
       // foreach ($flights as $flight) {
       //     echo $flight->name;

@@ -14,7 +14,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 
-$factory->define(User::class, function (Faker\Generator $faker) {
+$factory->define(\App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -25,7 +25,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Group::class, function (Faker\Generator $faker) {
+$factory->define(\App\Group::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -33,10 +33,11 @@ $factory->define(Group::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Password::class, function (Faker\Generator $faker) {
+$factory->define(\App\Password::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'password' => 'secret'
+        'password' => 'secret',
+        'group_id' => rand(0,50),
     ];
 });

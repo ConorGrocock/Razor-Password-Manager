@@ -16,7 +16,7 @@ class AuthenticatedTest extends TestCase
      */
     public function testHome()
     {
-      $user = factory(User::class)->create();
+      $user = factory(\App\User::class)->create();
 
       $response = $this->actingAs($user)
                        ->get('/home');

@@ -11,7 +11,7 @@ class UserTableSeed extends Seeder
      */
     public function run()
     {
-      factory(app\User::class, 50)->create()->each(function ($u) {
+      factory(\App\User::class, 50)->create()->each(function ($u) {
         $u->groups()->attach(rand(0,5));
       });
     }

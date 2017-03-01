@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(GroupTableSeed::class);
-        $this->call(UsersTableSeeder::class);
+        $this->call(UserTableSeed::class);
         $this->call(PasswordTableSeed::class);
     }
 }
