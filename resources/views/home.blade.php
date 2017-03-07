@@ -8,6 +8,10 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                  @if($Groups->isEmpty())
+                    <h2 style="text-align:center;">Sorry, you dont belong to any groups</h2>
+                    <h5 style="text-align:center;">Create one by clicking the new group button, Which can be found by clicking on your username in the top right corner</h5>
+                  @endif
                   <ul>
                   @foreach ($Groups as $group)
                     <li> <a href="/group/show/{{$group->id}}">{{ $group->name }}</a>

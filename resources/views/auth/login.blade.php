@@ -60,9 +60,13 @@
                             </div>
                         </div>
                     </form>
-                    <a href="/login/google">
-                      <img src="/img/btn_google_signin.png" alt="Sign in with Google">
-                    </a>
+                    <div class="col-md-4 col-md-offset-4">
+                      <a href="/login/google">
+                        <div class="btn btn-google">
+                        <span class="fa fa-google"></span> Sign in with Google
+                        </div>
+                      </a>
+                    </div>
                 </div>
             </div>
         </div>

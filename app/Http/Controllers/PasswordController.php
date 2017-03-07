@@ -31,6 +31,9 @@ class PasswordController extends Controller
     public function create()
     {
       $groups = Auth::user()->groups;
+      if($groups->isEmpty()) {
+        return view('group.create');
+      }
       return view('password.create', ['groups' => $groups]);
     }
 
