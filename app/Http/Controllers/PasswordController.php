@@ -32,7 +32,7 @@ class PasswordController extends Controller
     {
       $groups = Auth::user()->groups;
       if($groups->isEmpty()) {
-        return view('group.create');
+        return redirect('/group/new')->with('status', 'No groups found. Please create one before creating a password.');
       }
       return view('password.create', ['groups' => $groups]);
     }

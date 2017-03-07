@@ -8,11 +8,16 @@
                 <div class="panel-heading">Create new group</div>
 
                 <div class="panel-body">
+                  @if (session('status'))
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
+                  @endif
                   <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/group/new">
                       {{ csrf_field() }}
 
                       <div class="form-group">
-                          <label for="name" class="col-md-4 control-label">Group name <a title="The name that will identify the group to users"></a></label>
+                          <label for="name" class="col-md-4 control-label">Group name <a title="The name that will identify the group to users">?</a></label>
 
                           <div class="col-md-6">
                               <input id="name" type="name" class="form-control" name="name"required autofocus>
