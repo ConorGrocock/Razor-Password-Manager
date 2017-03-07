@@ -12,7 +12,7 @@
                       {{ csrf_field() }}
 
                       <div class="form-group">
-                          <label for="name" class="col-md-4 control-label">Group name</label>
+                          <label for="name" class="col-md-4 control-label">Group name <a title="The name that will identify the group to users"></a></label>
 
                           <div class="col-md-6">
                               <input id="name" type="name" class="form-control" name="name"required autofocus>
@@ -24,6 +24,22 @@
                               @endif
                           </div>
                       </div>
+
+                      <div class="form-group">
+
+                          <label for="name" class="col-md-4 control-label">Group key <a title="This is the key that is used to encrypt passwords that belong to the group">?</a></label>
+
+                          <div class="col-md-6">
+                              <input id="name" type="name" class="form-control" name="name"required autofocus>
+
+                              @if ($errors->has('name'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('name') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
 
                       <p>Needs to be improved</p>
 
