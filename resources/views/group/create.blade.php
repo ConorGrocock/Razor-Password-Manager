@@ -32,14 +32,14 @@
 
                       <div class="form-group">
 
-                          <label for="name" class="col-md-4 control-label">Group key <a title="This is the key that is used to encrypt passwords that belong to the group">?</a></label>
+                          <label for="group_key" class="col-md-4 control-label">Group key <a title="This is the key that is used to encrypt passwords that belong to the group">?</a></label>
 
                           <div class="col-md-6">
-                              <input id="name" type="name" class="form-control" name="name"required autofocus>
+                              <input id="group_key" type="name" class="form-control" name="group_key"required autofocus>
 
-                              @if ($errors->has('name'))
+                              @if ($errors->has('group_key'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('name') }}</strong>
+                                      <strong>{{ $errors->first('group_key') }}</strong>
                                   </span>
                               @endif
                           </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Group;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,12 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $Groups = Group::all()->take(10);
+      //print_r(Auth::User()->groups); die;
 
+      //$Groups = Group::all()->take(10);
+      $Groups = Auth::User()->groups;
 
-      // foreach ($flights as $flight) {
-      //     echo $flight->name;
-      // }
-        return view('home')->with('Groups', $Groups);
+      return view('home')->with('Groups', $Groups);
     }
 }

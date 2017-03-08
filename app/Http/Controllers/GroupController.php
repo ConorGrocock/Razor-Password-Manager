@@ -47,6 +47,7 @@ class GroupController extends Controller
 
         $group = new Group;
         $group->name = $request->input('name');
+        $group->group_key = $request->input('group_key');
         //Auth::user()->groups()->attach($group);
         $group->save();
 
