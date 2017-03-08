@@ -5,17 +5,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Create new group</div>
+                <div class="panel-heading">Edit password</div>
 
                 <div class="panel-body">
-                  <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/group/new">
+                  <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/password/show/{{ $password->id }}/edit">
                       {{ csrf_field() }}
 
                       <div class="form-group">
-                          <label for="name" class="col-md-4 control-label">Group name <a title="The name that will identify the group to users">?</a></label>
+                          <label for="name" class="col-md-4 control-label">Password name</label>
 
                           <div class="col-md-6">
-                              <input id="name" type="name" class="form-control" name="name"required autofocus>
+                              <input id="name" type="name" class="form-control" name="name"  value="{{ $password->name or '' }}" required autofocus>
 
                               @if ($errors->has('name'))
                                   <span class="help-block">
@@ -25,21 +25,19 @@
                           </div>
                       </div>
 
-                      <div class="form-group">
-
-                          <label for="group_key" class="col-md-4 control-label">Group key <a title="This is the key that is used to encrypt passwords that belong to the group">?</a></label>
+                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                          <label for="password" class="col-md-4 control-label">Password</label>
 
                           <div class="col-md-6">
-                              <input id="group_key" type="name" class="form-control" name="group_key"required autofocus>
+                              <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" required autofocus>
 
-                              @if ($errors->has('group_key'))
+                              @if ($errors->has('name'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('group_key') }}</strong>
+                                      <strong>{{ $errors->first('password') }}</strong>
                                   </span>
                               @endif
                           </div>
                       </div>
-
 
                       <p>Needs to be improved</p>
 
