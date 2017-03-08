@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Password;
 use Auth;
+use Crypt;
 
 class PasswordController extends Controller
 {
@@ -15,10 +16,13 @@ class PasswordController extends Controller
      */
     public function index()
     {
-      $Passwords = Password::all();
+      $Passwords = Password::All();
       // foreach ($Passwords as $password) {
       //   echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
       // }
+      // print_r($Passwords);
+      // echo Crypt::decryptString($Passwords->password);
+      // die();
 
       return view('password.index', ['passwords' => $Passwords]);
     }
@@ -49,6 +53,7 @@ class PasswordController extends Controller
       // die();
       $password = new Password;
       $password->name     = $request->input('name');
+      //$password->password = Crypt::encryptString($request->input('password'));
       $password->password = $request->input('password');
       $password->group_id = $request->input('group_select');
       //Auth::user()->groups()->attach($group);
@@ -65,7 +70,8 @@ class PasswordController extends Controller
      */
     public function show($id)
     {
-        //
+        $Passwords = Password::All();
+        return view('password.index', ['passwords' => $Passwords]);
     }
 
     /**
