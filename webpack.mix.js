@@ -12,6 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+   .js('resources/assets/js/sweetalert.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css/')
-   .combine(['public/css/app.css', 'resources/assets/css/bootstrap-social.css' ], 'public/css/app.css')
+   .combine(['public/css/app.css', 'resources/assets/css/bootstrap-social.css', 'resources/assets/css/sweetalert.css' ], 'public/css/app.css')
    ;

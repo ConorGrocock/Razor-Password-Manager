@@ -6,7 +6,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Create new group</div>
-
+                @if (session('status'))
+                    <div class="alert alert-warning">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="panel-body">
                   <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/') }}/group/new">
                       {{ csrf_field() }}

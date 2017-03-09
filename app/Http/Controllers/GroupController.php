@@ -104,4 +104,13 @@ class GroupController extends Controller
         Group::destroy($id);
         return redirect('/home');
     }
+
+    public function Join($id)
+    {
+      print_r(Group::find($id)->users);die();
+
+      if(!in_array(Auth::User(), Group::FindorFail($id)->users()))
+        Group::FindorFail($id)->users()->attach(Auth::user());
+      return redirect('/home');
+    }
 }

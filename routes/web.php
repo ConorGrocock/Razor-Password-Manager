@@ -27,10 +27,11 @@ Route::group(['middleware' => 'auth'], function () {
 
   //Group Routes
 
-  Route::get( '/group/show/{id}', 'GroupController@show');
-  Route::get( '/group/show/{id}/edit', 'GroupController@edit');
-  Route::post('/group/show/{id}/edit', 'GroupController@update');
-  Route::get('/group/show/{id}/delete', 'GroupController@destroy');
+  Route::get( '/group/show/{id}'       , 'GroupController@show');
+  Route::get( '/group/show/{id}/join'  , 'GroupController@join');
+  Route::get( '/group/show/{id}/edit'  , 'GroupController@edit');
+  Route::post('/group/show/{id}/edit'  , 'GroupController@update');
+  Route::get( '/group/show/{id}/delete', 'GroupController@destroy');
 
   Route::get('/group/list', 'GroupController@index');
   Route::get('/group/new', 'GroupController@create');

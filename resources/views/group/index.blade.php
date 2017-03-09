@@ -13,6 +13,7 @@
                       <tr>
                         <th>Name</th>
                         <th>User count</th>
+                        <th>Join</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -20,6 +21,7 @@
                     <tr>
                       <td>{{ $group->name }}</td>
                       <td>{{ $group->users->count() }}</td>
+                      <td><button type="button" class="btn btn-info" onclick="">Join</button></td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -28,4 +30,5 @@
         </div>
     </div>
 </div>
+
 @endsection

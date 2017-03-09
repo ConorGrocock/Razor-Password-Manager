@@ -16,6 +16,7 @@ class PasswordController extends Controller
      */
     public function index()
     {
+
       $Passwords = Password::All();
       // foreach ($Passwords as $password) {
       //   echo $password->name . ": " . $password->group_id . ":" . $password->password . "</br>";
@@ -36,7 +37,7 @@ class PasswordController extends Controller
     {
       $groups = Auth::user()->groups;
       if($groups->isEmpty()) {
-        return view('group.create');
+        return redirect('/group/new')->with('status', 'No groups found. Please create one below');
       }
       return view('password.create', ['groups' => $groups]);
     }
