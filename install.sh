@@ -13,3 +13,7 @@ fi
 echo "Done installing composer"
 
 $COMPOSER_CMD install;
+sudo apt install node -y;
+npm run dev;
+php artisan key:generate;
+echo "Change the .env database settings.";
