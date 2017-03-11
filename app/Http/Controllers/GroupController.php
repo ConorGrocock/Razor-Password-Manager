@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
 use \App\Group;
@@ -47,7 +48,6 @@ class GroupController extends Controller
 
         $group = new Group;
         $group->name = $request->input('name');
-        $group->group_key = $request->input('group_key');
         //Auth::user()->groups()->attach($group);
         $group->save();
 

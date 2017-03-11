@@ -54,8 +54,8 @@ class PasswordController extends Controller
       // die();
       $password = new Password;
       $password->name     = $request->input('name');
-      //$password->password = Crypt::encryptString($request->input('password'));
-      $password->password = $request->input('password');
+      $password->password = Crypt::encryptString($request->input('password'));
+      //$password->password = encrypt($request->input('password'));
       $password->group_id = $request->input('group_select');
       //Auth::user()->groups()->attach($group);
       $password->save();

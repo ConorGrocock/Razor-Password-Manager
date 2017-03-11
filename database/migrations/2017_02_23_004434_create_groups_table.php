@@ -18,11 +18,6 @@ class CreateGroupsTable extends Migration
             //The name of the group
             $table->string('name');
 
-            //The groups encryption key
-            //Do not change or the passwords
-            //become invalid
-            $table->string('group_key');
-
             $table->timestamps();
         });
     }

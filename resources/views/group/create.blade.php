@@ -29,22 +29,6 @@
                           </div>
                       </div>
 
-                      <div class="form-group">
-
-                          <label for="group_key" class="col-md-4 control-label">Group key <a title="This is the key that is used to encrypt passwords that belong to the group">?</a></label>
-
-                          <div class="col-md-6">
-                              <input id="group_key" type="name" class="form-control" name="group_key"required autofocus>
-
-                              @if ($errors->has('group_key'))
-                                  <span class="help-block">
-                                      <strong>{{ $errors->first('group_key') }}</strong>
-                                  </span>
-                              @endif
-                          </div>
-                      </div>
-
-
                       <p>Needs to be improved</p>
 
                       <div class="form-group">

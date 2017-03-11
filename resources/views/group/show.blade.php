@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                       <h4>{{ $group->name }}</h4>
                     </div>
                     @if(Auth::User()->groups->contains($group->id))
@@ -16,7 +16,7 @@
                           <a href="{{ URL::current() }}/delete"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                       </div>
                     @else
-                      <div class="col-md-1">
+                      <div class="col-md-2">
                         <a href="{{ URL::current() }}/join"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button></a>
                       </div<
                     @endif
@@ -32,7 +32,7 @@
                           <li><a href="#" onclick='
                             swal({
                               title: "Password for {{ $user->name }}",
-                              text: "{{ $user->password }}",
+                              text: "{{ Crypt::decryptString($user->password) }}",
                               timer: 10000,
                               showConfirmButton: true
                               });
