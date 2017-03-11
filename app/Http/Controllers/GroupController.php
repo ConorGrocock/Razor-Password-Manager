@@ -107,9 +107,7 @@ class GroupController extends Controller
 
     public function Join($id)
     {
-      print_r(Group::find($id)->users);die();
-
-      if(!in_array(Auth::User(), Group::FindorFail($id)->users()))
+      if(!Auth::User()->groups->contains($id))
         Group::FindorFail($id)->users()->attach(Auth::user());
       return redirect('/home');
     }

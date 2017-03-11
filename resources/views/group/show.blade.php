@@ -10,11 +10,16 @@
                     <div class="col-md-9">
                       <h4>{{ $group->name }}</h4>
                     </div>
-                      <div class="col-md-3">
+                    @if(Auth::User()->groups->contains($group->id))
+                      <div class="col-md-2">
                           <a href="{{ URL::current() }}/edit"><button type="button" class="btn btn-default"><i class="fa fa-pencil"></i></button></a>
                           <a href="{{ URL::current() }}/delete"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-                          <a href="{{ URL::current() }}/join"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button></a>
                       </div>
+                    @else
+                      <div class="col-md-1">
+                        <a href="{{ URL::current() }}/join"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button></a>
+                      </div<
+                    @endif
                   </div>
                 </div>
 
