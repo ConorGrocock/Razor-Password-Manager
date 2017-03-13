@@ -9,12 +9,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RouteTest extends TestCase
 {
-  public function testIndex()
-  {
-    $response = $this->get('/');
-    $response->assertStatus(200);
-  }
-
   public function testLogin()
   {
     $response = $this->get('/login');
