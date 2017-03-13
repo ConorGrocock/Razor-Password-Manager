@@ -12,7 +12,7 @@ class GroupTableSeed extends Seeder
     public function run()
     {
       factory(\App\Group::class, 5)->create()->each(function ($u) {
-
+        $u->users()->attach('1');
       });
     }
 }

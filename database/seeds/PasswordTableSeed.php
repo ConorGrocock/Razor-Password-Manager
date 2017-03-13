@@ -11,8 +11,8 @@ class PasswordTableSeed extends Seeder
      */
     public function run()
     {
-      factory(\App\Password::class, 500)->create()->each(function ($u) {
-        
+      factory(\App\Password::class, 100)->create()->each(function ($u) {
+
       });
     }
 }

@@ -29,15 +29,15 @@ $factory->define(\App\Group::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->company
     ];
 });
 
 $factory->define(\App\Password::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => $faker->name,
-        'password' => 'secret',
-        'group_id' => rand(0,50),
+        'name' => $faker->word,
+        'password' => Crypt::encryptString($faker->word),
+        'group_id' => rand(0,5),
     ];
 });
